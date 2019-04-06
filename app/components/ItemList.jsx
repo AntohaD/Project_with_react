@@ -12,14 +12,11 @@ class ItemsList extends React.Component {
             items: []
         };
         // this.state = { items: this.props.data };
-        this.filterList = this.filterList.bind(this);
+        this.filterList = this.updateFilterList.bind(this);
+        console.log(this.state);
     }
 
-    // Ищем совпадения введенных данных с именем котов
-    filterList(text) {
-        let filteredList = this.state.items.filter((item) => {
-            return item.name.toLowerCase().search(text.toLowerCase()) !== -1;
-        });
+    updateFilterList(filteredList) {
         this.setState({ items: filteredList });
     }
 
@@ -53,12 +50,12 @@ class ItemsList extends React.Component {
             return (
                 <div className="container-fluid">
                     <h1>List of Cats</h1>
-                    <SearchPlugin filter={this.filterList} />
+                    <SearchPlugin items={this.state.items} updateList={this.filterList} />
 
                     <div className="gbody">
                         <div className="row">
                             {
-                                this.state.items.map((i) => {
+                                items.map((i) => {
                                     return <div className="col-md-4">
                                         <Item key={i.id} imageUrl={i.imageUrl} name={i.name} />
                                     </div>
