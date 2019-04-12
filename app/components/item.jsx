@@ -7,7 +7,7 @@ class Item extends React.Component {
         return (
             <div className="row viewCat"
                 onClick={() => {
-                    itemClick(this._reactInternalFiber.key, "viewCat");
+                    itemClick(this);
                 }}
             >
                 <div className="col-sm-7 containerCat">

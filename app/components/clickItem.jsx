@@ -1,17 +1,17 @@
 let selectedIds = require('../../data/selectedIds.js');
 
-function click (item, elementHtml) {
+function click(item) {
     
-    const row = document.getElementsByClassName(elementHtml);
-    let id = item;
+    let id = item._reactInternalFiber.key;
+    let colorItem = item._reactInternalFiber.child.stateNode;
     const index = selectedIds.indexOf(id);
 
     if (index > -1) {
         selectedIds.splice(index, 1);
-        row[id - 1].style.backgroundColor = "rgb(250, 247, 235)";
+        colorItem.style.backgroundColor = "rgb(250, 247, 235)";
     } else {
-        selectedIds.push(item);
-        row[id - 1].style.backgroundColor = "rgb(230, 240, 230)";
+        selectedIds.push(id);
+        colorItem.style.backgroundColor = "rgb(230, 240, 230)";
     }
 }
 

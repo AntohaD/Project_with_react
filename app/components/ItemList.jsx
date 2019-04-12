@@ -9,11 +9,11 @@ class ItemsList extends React.Component {
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            items: [],
+            allItems: []
         };
         // this.state = { items: this.props.data };
         this.filterList = this.updateFilterList.bind(this);
-        console.log(this.state);
     }
 
     updateFilterList(filteredList) {
@@ -28,7 +28,8 @@ class ItemsList extends React.Component {
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        items: result
+                        items: result,
+                        allItems: result
                     });
                 },
                 (error) => {
@@ -50,13 +51,13 @@ class ItemsList extends React.Component {
             return (
                 <div className="container-fluid">
                     <h1>List of Cats</h1>
-                    <SearchPlugin items={this.state.items} updateList={this.filterList} />
+                    <SearchPlugin items={this.state.allItems} updateList={this.filterList} />
 
                     <div className="gbody">
                         <div className="row">
                             {
                                 items.map((i) => {
-                                    return <div className="col-md-4">
+                                    return <div className="col-md-4 col-sm-6 col-lg-4">
                                         <Item key={i.id} imageUrl={i.imageUrl} name={i.name} />
                                     </div>
                                 })

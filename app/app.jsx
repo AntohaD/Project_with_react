@@ -6,5 +6,3 @@ ReactDOM.render(
     <ItemsList />,
     document.getElementById("app")
 )
-
-{/* <ItemsList data={catsList} />, */ }

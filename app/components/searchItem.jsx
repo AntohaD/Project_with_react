@@ -14,13 +14,12 @@ class SearchPlugin extends React.Component {
 
     // Ищем совпадения введенных данных с именами котов
     searchHandler(text) {
+
         let filteredList = this.props.items.filter((item) => {
             return item.name.toLowerCase().search(text.toLowerCase()) !== -1;
         });
-
-        // this.setState({items: filteredList});
+        
         this.props.updateList(filteredList);
-        console.log(filteredList);
     }
 
     render() {
