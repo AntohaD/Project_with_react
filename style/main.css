@@ -1,4 +1,8 @@
 @import './search.css';
+@import './header.css';
+@import './about.css';
+@import './contacts.css';
+@import './home.css';
 
 h1 {
     text-align: center;
