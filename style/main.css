@@ -3,6 +3,7 @@
 @import './about.css';
 @import './contacts.css';
 @import './home.css';
+@import './pagination.css';
 
 h1 {
     text-align: center;

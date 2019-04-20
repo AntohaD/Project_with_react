@@ -1,7 +1,6 @@
 const ReactDOM = require('react-dom');
 const React = require('react');
 const ItemsList = require('./components/itemList.jsx');
-// import ItemList from './components/ItemList.jsx';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/header.jsx';
 import Contacts from './components/contacts.jsx';
@@ -22,5 +21,3 @@ ReactDOM.render(
     </Router>,
     document.getElementById("app")
 )
-
-{/* <ItemsList />, */ }
