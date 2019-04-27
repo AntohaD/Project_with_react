@@ -82,12 +82,12 @@ class ItemsList extends React.Component {
         const currentTodos = items.slice(indexOfFirstTodo, indexOfLastTodo);
         const last = Math.ceil(items.length / todosPerPage);
         prev = currentPage > 1 ? (currentPage - 1) : 1;
-        next = (last ===currentPage) ? currentPage: currentPage + 1;
+        next = (last === currentPage) ? currentPage: currentPage + 1;
         
 
         // Logic for displaying page numbers
         const pageNumbers = [];
-        for (let i = 1; i <= Math.ceil(items.length / todosPerPage); i++) {
+        for (let i = 1; i <= last; i++) {
             pageNumbers.push(i);
         }
 
@@ -132,15 +132,23 @@ class ItemsList extends React.Component {
                     </div>
 
                     <ul className="pagination justify-content-center" id="page-numbers">
-                        <li className="page-item" onClick={this.handlePrevClick}>
+                        <li className={`page-item ${
+                            currentPage === 1 ? " disabled" : ""
+                            }`} 
+                            onClick={this.handlePrevClick}
+                        >
                             <a className="page-link" href="">Previous</a>
                         </li>
                             {renderPageNumbers}
-                        <li className="page-item" onClick={this.handleNextClick}>
+                        <li className={`page-item ${
+                            currentPage === last ? " disabled" : ""
+                            }`}
+                            onClick={this.handleNextClick}
+                         >
                             <a className="page-link" href="">Next</a>
                         </li>
                     </ul>
-
+                    
                     <button type="button" className="btn btn-primary"
                         onClick={() => {
                             alert('Id selected: ' + emptyData(selectedIds));

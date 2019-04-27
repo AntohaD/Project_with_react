@@ -8,11 +8,13 @@ function click(item) {
 
     if (index > -1) {
         selectedIds.splice(index, 1);
-        colorItem.style.backgroundColor = "rgb(250, 247, 235)";
+        colorItem.style.backgroundColor = "rgb(245, 243, 235)";
     } else {
         selectedIds.push(id);
-        colorItem.style.backgroundColor = "rgb(230, 240, 230)";
+        colorItem.style.backgroundColor = "rgb(220, 230, 230)";
     }
+
+    console.log(selectedIds);
 }
 
 module.exports = click;
